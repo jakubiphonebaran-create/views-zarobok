@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Views a zárobok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=Inter+Tight:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--color-fg:#16181d;--color-fg-muted:#5f6670;--color-bg:#f6f7f9;--color-panel:#fff;--color-border-line:#e3e6ea;--color-ok:#1f8a4c;--cds-chart-grid:#e9ecef;--cds-surface-popover:#fff;--cds-border:#dfe3e8;--cds-text-secondary:#5f6670;--c1:#3b6fe0;--c2:#d9772b;--c3:#2a9d8f;--c4:#a855f7}
+@media (prefers-color-scheme: dark){:root{--color-fg:#eceef1;--color-fg-muted:#9aa1ab;--color-bg:#0b0b0c;--color-panel:#1c1d20;--color-border-line:#2c2e33;--color-ok:#6cc46f;--cds-chart-grid:#2a2c30;--cds-surface-popover:#222327;--cds-border:#34363b;--cds-text-secondary:#9aa1ab;color-scheme:dark}}
+:root{--font-anthropic-sans:'Inter Tight',system-ui,sans-serif;--font-anthropic-serif:'Fraunces',Georgia,serif;--cds-font-size-caption:.8rem;--cds-font-size-body:.95rem;--cds-font-size-heading:1.1rem;--cds-font-size-title:2rem;--cds-font-weight-medium:600;--cds-gap-xs:.25rem;--cds-gap-sm:.5rem;--cds-gap-md:1rem;--cds-gap-lg:1.5rem;--cds-gap-xl:2rem;--cds-pad-xs:.3rem;--cds-pad-sm:.6rem;--cds-pad-md:1rem;--cds-pad-lg:1.25rem;--cds-pad-xl:1.75rem;--cds-radius:12px;--cds-shadow-popover:0 6px 24px rgba(0,0,0,.15)}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);padding:2rem max(16px,env(safe-area-inset-right,0px)) 3rem max(16px,env(safe-area-inset-left,0px))}
+
+  .vz { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); max-width: 72rem; margin-inline: auto; }
+  .vz-top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--cds-gap-md); }
+  .vz-top h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+  .vz-top p { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .vz-months { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
+  .vz-months button { font: inherit; font-size: var(--cds-font-size-body); padding: var(--cds-pad-xs) var(--cds-pad-md); border-radius: 999px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); cursor: pointer; text-transform: capitalize; }
+  .vz-months button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .vz-months button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+
+  .vz-hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--cds-gap-md); }
+  .vz-hero > div { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xl); min-width: 0; }
+  .vz-k { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .06em; }
+  .vz-huge { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1.05; margin-top: var(--cds-gap-sm); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .vz-money .vz-huge { color: var(--color-ok); }
+  .vz-delta { margin-top: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+
+  .vz-sec h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-sm); }
+  .vz-accs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--cds-gap-md); }
+  .vz-acc { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-md); min-width: 0; }
+  .vz-acc-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--cds-gap-sm); flex-wrap: wrap; }
+  .vz-acc-name { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+  .vz-acc-eur { color: var(--color-ok); font-variant-numeric: tabular-nums; font-size: var(--cds-font-size-body); }
+  .vz-acc-views { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+  .vz-plats { display: grid; gap: var(--cds-gap-sm); }
+  .vz-plat { display: grid; grid-template-columns: 6.5rem 1fr auto; align-items: center; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+  .vz-bar { height: 8px; border-radius: 4px; background: var(--cds-chart-grid); overflow: hidden; }
+  .vz-bar span { display: block; height: 100%; border-radius: 4px; }
+  .vz-plat .v { text-align: right; min-width: 4.5rem; }
+  .vz-muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+
+  .vz-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+  .vz-card .vz-note { margin: 0 0 var(--cds-gap-md); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .vz-chart { position: relative; min-height: 240px; }
+  .vz-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+  .vz-tip .d { color: var(--cds-text-secondary); }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .vz details { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .vz details p { margin: var(--cds-gap-xs) 0; max-width: 65ch; }
+</style>
+</head><body>
+<div class="vz">
+  <header class="vz-top">
+    <div>
+      <h1>Views a zárobok</h1>
+      <p>1 cent za každých 100 zhliadnutí · aktualizované <span data-draw="lastDate">—</span></p>
+    </div>
+    <nav class="vz-months" aria-label="Mesiac" data-draw="months"></nav>
+  </header>
+
+  <section class="vz-hero">
+    <div>
+      <div class="vz-k">Zhliadnutia spolu</div>
+      <div class="vz-huge" data-draw="heroViews">—</div>
+      <div class="vz-delta" data-draw="heroViewsDelta">—</div>
+    </div>
+    <div class="vz-money">
+      <div class="vz-k">Zárobok spolu</div>
+      <div class="vz-huge" data-draw="heroEur">—</div>
+      <div class="vz-delta" data-draw="heroEurDelta">—</div>
+    </div>
+  </section>
+
+  <section class="vz-sec">
+    <h2 id="ucty">Účty</h2>
+    <div class="vz-accs" data-draw="accounts"></div>
+  </section>
+
+  <section class="vz-card">
+    <h2 id="vyvoj" class="vz-sec" style="margin:0 0 var(--cds-gap-xs);font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium)">Vývoj počas mesiaca</h2>
+    <p class="vz-note">Súčet zhliadnutí od 1. v mesiaci pri každej dennej aktualizácii.</p>
+    <div class="vz-chart" data-draw="chart"></div>
+  </section>
+
+  <details>
+    <summary>Ako sa to počíta</summary>
+    <p>TikTok: denné zhliadnutia z TikTok Studio sčítané od 1. dňa mesiaca. Facebook a Instagram: Meta Business Suite, obdobie „Tento mesiac“ (pri minulých mesiacoch „Minulý mesiac“). YouTube: súčet zhliadnutí shortov zverejnených v danom mesiaci.</p>
+    <p>Zárobok = zhliadnutia × 0,0001 € (1 cent za 100 zhliadnutí), za všetky účty spolu.</p>
+    <p>TikTok a Meta ukazujú čísla s oneskorením 1–2 dni. Pri YouTube sa views starších shortov pripisujú mesiacu, keď vyšli.</p>
+  </details>
+</div>
+
+
+
+<script src="d3.min.js"></script>
+<script>
+const COLORS=['var(--c1)','var(--c2)','var(--c3)','var(--c4)'];
+const fmtN=v=>new Intl.NumberFormat('sk-SK').format(v);
+const fmtE=v=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(v);
+const fmtD=s=>{const[y,m,d]=s.split('-');return `${+d}. ${+m}. ${y}`};
+const monthName=m=>{const[y,mo]=m.split('-');return new Date(Date.UTC(+y,+mo-1,1)).toLocaleDateString('sk-SK',{month:'long',year:'numeric',timeZone:'UTC'})};
+const PLATFORMS=['TikTok','Facebook','Instagram','YouTube'];
+const $=n=>document.querySelector(`[data-draw="${n}"]`);
+let views=[],monthly=[],totals=[],trend=[],state={month:null};
+function compute(){
+  const last=new Map();
+  views.forEach(r=>{const k=r.month+'|'+r.account+'|'+r.platform;if(!last.has(k)||r.date>last.get(k).date)last.set(k,r)});
+  monthly=[...last.values()].map(r=>({month:r.month,account:r.account,platform:r.platform,views:+r.views||0}));
+  totals=d3.rollups(monthly,v=>d3.sum(v,r=>r.views),r=>r.month,r=>r.account).flatMap(([month,accs])=>{const t=d3.sum(accs,a=>a[1]);return[...accs.map(([account,views])=>({month,account,views})),{month,account:'Spolu',views:t}]});
+  trend=d3.rollups(views,v=>d3.sum(v,r=>+r.views||0),r=>r.month,r=>r.date,r=>r.account).flatMap(([month,ds])=>ds.flatMap(([date,accs])=>accs.map(([account,views])=>({month,date,account,views}))));
+}
+const months=()=>[...new Set(totals.map(r=>r.month))].sort();
+const total=(m,a='Spolu')=>totals.find(x=>x.month===m&&x.account===a);
+function draw(){
+  const ms=months(); if(!state.month||!ms.includes(state.month))state.month=ms[ms.length-1]; const m=state.month;
+  $('lastDate').textContent=views.length?fmtD(d3.max(views,r=>r.date)):'—';
+  const nav=$('months'); nav.replaceChildren();
+  ms.slice().reverse().forEach(x=>{const b=document.createElement('button');b.type='button';b.textContent=monthName(x);b.setAttribute('aria-pressed',String(x===m));b.onclick=()=>{state.month=x;draw()};nav.append(b)});
+  const r=total(m), i=ms.indexOf(m), p=i>0?ms[i-1]:null, q=p&&total(p);
+  $('heroViews').textContent=r?fmtN(r.views):'—'; $('heroEur').textContent=r?fmtE(r.views*0.0001):'—';
+  $('heroViewsDelta').textContent=q?`Pre porovnanie, minulý mesiac (${monthName(p)}): ${fmtN(q.views)}`:'Prvý sledovaný mesiac';
+  $('heroEurDelta').textContent=q?`Pre porovnanie, minulý mesiac (${monthName(p)}): ${fmtE(q.views*0.0001)}`:'Prvý sledovaný mesiac';
+  const wrap=$('accounts'); wrap.replaceChildren();
+  const rows=monthly.filter(x=>x.month===m);
+  d3.rollups(rows,v=>d3.sum(v,x=>x.views),x=>x.account).sort((a,b)=>b[1]-a[1]).forEach(([acc,v],ci)=>{
+    const card=document.createElement('article');card.className='vz-acc';
+    const mine=rows.filter(x=>x.account===acc), max=d3.max(mine,x=>x.views)||1;
+    card.innerHTML=`<div class="vz-acc-head"><span class="vz-acc-name"></span><span class="vz-acc-eur"></span></div><div><span class="vz-acc-views"></span><span class="vz-muted"> zhliadnutí</span></div><div class="vz-plats"></div>`;
+    card.querySelector('.vz-acc-name').textContent=acc; card.querySelector('.vz-acc-eur').textContent=fmtE(v*0.0001); card.querySelector('.vz-acc-views').textContent=fmtN(v);
+    const pl=card.querySelector('.vz-plats');
+    [...PLATFORMS,...mine.map(x=>x.platform).filter(x=>!PLATFORMS.includes(x))].forEach(pn=>{const x=mine.find(y=>y.platform===pn);if(!x)return;
+      const line=document.createElement('div');line.className='vz-plat';
+      line.innerHTML=`<span></span><div class="vz-bar"><span></span></div><span class="v"></span>`;
+      line.children[0].textContent=pn; const f=line.querySelector('.vz-bar span'); f.style.width=`${Math.max(x.views?2:0,x.views/max*100)}%`; f.style.background=COLORS[ci%COLORS.length]; line.children[2].textContent=fmtN(x.views); pl.append(line)});
+    wrap.append(card)});
+  drawChart(m);
+}
+function drawChart(m){
+  const el=$('chart'); el.replaceChildren();
+  const rows=trend.filter(r=>r.month===m).map(r=>({...r,d:new Date(r.date+'T00:00:00Z')})).sort((a,b)=>a.d-b.d); if(!rows.length)return;
+  const W=el.clientWidth||320,H=240, accs=[...new Set(rows.map(r=>r.account))], color=a=>COLORS[accs.indexOf(a)%COLORS.length];
+  const svg=d3.select(el).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
+  const y=d3.scaleLinear([0,d3.max(rows,r=>r.views)||1],[H-28,14]).nice();
+  const pr=svg.append('text').attr('font-size',11).text(fmtN(y.domain()[1])); const left=pr.node().getComputedTextLength()+10; pr.remove();
+  const labels=accs.map(a=>{const e=rows.filter(r=>r.account===a).pop();return `${a} ${fmtN(e.views)}`});
+  const pr2=svg.append('text').attr('font-size',11).text(labels.reduce((a,b)=>a.length>b.length?a:b,'')); const right=Math.min(W*.4,pr2.node().getComputedTextLength()+14); pr2.remove();
+  const dates=[...new Set(rows.map(r=>+r.d))].map(t=>new Date(t)); const dom=dates.length>1?d3.extent(dates):[d3.utcDay.offset(dates[0],-1),d3.utcDay.offset(dates[0],1)];
+  const x=d3.scaleUtc(dom,[left,W-right]);
+  svg.append('g').selectAll('line').data(y.ticks(4)).join('line').attr('x1',left).attr('x2',W-right).attr('y1',y).attr('y2',y).attr('stroke','var(--cds-chart-grid)');
+  svg.append('g').selectAll('text').data(y.ticks(4)).join('text').attr('x',left-6).attr('y',d=>y(d)).attr('dy','0.32em').attr('text-anchor','end').attr('font-size',11).attr('fill','var(--color-fg-muted)').text(fmtN);
+  svg.append('g').selectAll('text').data(dates.length>6?x.ticks(5):dates).join('text').attr('x',x).attr('y',H-8).attr('text-anchor','middle').attr('font-size',11).attr('fill','var(--color-fg-muted)').text(d3.utcFormat('%-d. %-m.'));
+  const line=d3.line().x(r=>x(r.d)).y(r=>y(r.views));
+  accs.forEach((a,i)=>{const s=rows.filter(r=>r.account===a);
+    svg.append('path').attr('d',line(s)).attr('fill','none').attr('stroke',color(a)).attr('stroke-width',2).attr('stroke-linecap','round');
+    svg.append('g').selectAll('circle').data(s).join('circle').attr('cx',r=>x(r.d)).attr('cy',r=>y(r.views)).attr('r',3.5).attr('fill',color(a));
+    const e=s[s.length-1]; svg.append('text').attr('x',x(e.d)+8).attr('y',y(e.views)+(i?12:-2)).attr('dy','0.32em').attr('font-size',11).attr('fill','var(--color-fg)').text(labels[i])});
+}
+fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{views=d;compute();draw()});
+addEventListener('resize',()=>state.month&&drawChart(state.month));
+</script>
+</body></html>
