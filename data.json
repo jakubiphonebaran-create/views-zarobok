@@ -118,5 +118,85 @@
   "through": "2026-11-08",
   "lifetime": null,
   "note": "Súčet views shortov zverejnených v októbri"
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "TikTok",
+  "views": 4305,
+  "through": "2026-11-07",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Facebook",
+  "views": 42869,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Instagram",
+  "views": 2681,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "YouTube",
+  "views": 8221,
+  "through": "2026-11-09",
+  "lifetime": 19460,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "TikTok",
+  "views": 0,
+  "through": "2026-11-06",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Facebook",
+  "views": 7804,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Instagram",
+  "views": 302,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-09",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "YouTube",
+  "views": 11248,
+  "through": "2026-11-09",
+  "lifetime": 11248,
+  "note": "Súčet views shortov zverejnených v mesiaci"
  }
 ]
