@@ -94,6 +94,7 @@ body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(-
 <script src="d3.min.js"></script>
 <script>
 const COLORS=['var(--c1)','var(--c2)','var(--c3)','var(--c4)'];
+const ACC_COLORS={'Fiki':'#2f9e57','Národná Záležitosť':'#d64545'}; const accColor=(a,i)=>ACC_COLORS[a]||COLORS[i%COLORS.length];
 const fmtN=v=>new Intl.NumberFormat('sk-SK').format(v);
 const fmtE=v=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(v);
 const fmtD=s=>{const[y,m,d]=s.split('-');return `${+d}. ${+m}. ${y}`};
@@ -130,14 +131,14 @@ function draw(){
     [...PLATFORMS,...mine.map(x=>x.platform).filter(x=>!PLATFORMS.includes(x))].forEach(pn=>{const x=mine.find(y=>y.platform===pn);if(!x)return;
       const line=document.createElement('div');line.className='vz-plat';
       line.innerHTML=`<span></span><div class="vz-bar"><span></span></div><span class="v"></span>`;
-      line.children[0].textContent=pn; const f=line.querySelector('.vz-bar span'); f.style.width=`${Math.max(x.views?2:0,x.views/max*100)}%`; f.style.background=COLORS[ci%COLORS.length]; line.children[2].textContent=fmtN(x.views); pl.append(line)});
+      line.children[0].textContent=pn; const f=line.querySelector('.vz-bar span'); f.style.width=`${Math.max(x.views?2:0,x.views/max*100)}%`; f.style.background=accColor(acc,ci); line.children[2].textContent=fmtN(x.views); pl.append(line)});
     wrap.append(card)});
   drawChart(m);
 }
 function drawChart(m){
   const el=$('chart'); el.replaceChildren();
   const rows=trend.filter(r=>r.month===m).map(r=>({...r,d:new Date(r.date+'T00:00:00Z')})).sort((a,b)=>a.d-b.d); if(!rows.length)return;
-  const W=el.clientWidth||320,H=240, accs=[...new Set(rows.map(r=>r.account))], color=a=>COLORS[accs.indexOf(a)%COLORS.length];
+  const W=el.clientWidth||320,H=240, accs=[...new Set(rows.map(r=>r.account))], color=a=>accColor(a,accs.indexOf(a));
   const svg=d3.select(el).append('svg').attr('width','100%').attr('viewBox',`0 0 ${W} ${H}`);
   const y=d3.scaleLinear([0,d3.max(rows,r=>r.views)||1],[H-28,14]).nice();
   const pr=svg.append('text').attr('font-size',11).text(fmtN(y.domain()[1])); const left=pr.node().getComputedTextLength()+10; pr.remove();
@@ -149,10 +150,11 @@ function drawChart(m){
   svg.append('g').selectAll('text').data(y.ticks(4)).join('text').attr('x',left-6).attr('y',d=>y(d)).attr('dy','0.32em').attr('text-anchor','end').attr('font-size',11).attr('fill','var(--color-fg-muted)').text(fmtN);
   svg.append('g').selectAll('text').data(dates.length>6?x.ticks(5):dates).join('text').attr('x',x).attr('y',H-8).attr('text-anchor','middle').attr('font-size',11).attr('fill','var(--color-fg-muted)').text(d3.utcFormat('%-d. %-m.'));
   const line=d3.line().x(r=>x(r.d)).y(r=>y(r.views));
+  const ends=accs.map(a=>{const s=rows.filter(r=>r.account===a);return y(s[s.length-1].views)}); const ly=[]; {let prev=-Infinity; d3.range(accs.length).sort((p,q)=>ends[p]-ends[q]).forEach(k=>{prev=Math.max(ends[k],prev+16);ly[k]=prev})}
   accs.forEach((a,i)=>{const s=rows.filter(r=>r.account===a);
     svg.append('path').attr('d',line(s)).attr('fill','none').attr('stroke',color(a)).attr('stroke-width',2).attr('stroke-linecap','round');
     svg.append('g').selectAll('circle').data(s).join('circle').attr('cx',r=>x(r.d)).attr('cy',r=>y(r.views)).attr('r',3.5).attr('fill',color(a));
-    const e=s[s.length-1]; svg.append('text').attr('x',x(e.d)+8).attr('y',y(e.views)+(i?12:-2)).attr('dy','0.32em').attr('font-size',11).attr('fill','var(--color-fg)').text(labels[i])});
+    const e=s[s.length-1]; svg.append('text').attr('x',x(e.d)+8).attr('y',ly[i]).attr('dy','0.32em').attr('font-size',11).attr('fill','var(--color-fg)').text(labels[i])});
 }
 fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{views=d;compute();draw()});
 addEventListener('resize',()=>state.month&&drawChart(state.month));
