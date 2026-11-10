@@ -198,5 +198,85 @@
   "through": "2026-11-09",
   "lifetime": 11248,
   "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "TikTok",
+  "views": 4382,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Facebook",
+  "views": 2739,
+  "through": "2026-11-09",
+  "lifetime": null,
+  "note": "Bez zmazaného videa s Hascakom (odpočítaných 40 613 views)"
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Instagram",
+  "views": 3504,
+  "through": "2026-11-09",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "YouTube",
+  "views": 10912,
+  "through": "2026-11-10",
+  "lifetime": 22178,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "TikTok",
+  "views": 0,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Facebook",
+  "views": 7804,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 10.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Instagram",
+  "views": 302,
+  "through": "2026-11-08",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 10.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-10",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "YouTube",
+  "views": 33377,
+  "through": "2026-11-10",
+  "lifetime": 33377,
+  "note": "Súčet views shortov zverejnených v mesiaci"
  }
 ]
