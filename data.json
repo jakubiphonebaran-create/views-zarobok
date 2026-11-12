@@ -314,9 +314,9 @@
   "month": "2026-11",
   "account": "Fiki",
   "platform": "YouTube",
-  "views": 14656,
+  "views": 14705,
   "through": "2026-11-11",
-  "lifetime": 25990,
+  "lifetime": 26039,
   "note": "Súčet views shortov zverejnených v mesiaci"
  },
  {
@@ -354,9 +354,89 @@
   "month": "2026-11",
   "account": "Národná Záležitosť",
   "platform": "YouTube",
-  "views": 49820,
+  "views": 49850,
   "through": "2026-11-11",
-  "lifetime": 49820,
+  "lifetime": 49850,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "TikTok",
+  "views": 9422,
+  "through": "2026-11-10",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Facebook",
+  "views": 4464,
+  "through": "2026-11-11",
+  "lifetime": null,
+  "note": "Bez zmazaného videa s Hascakom (odpočítaných 40 613 views)"
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Instagram",
+  "views": 5677,
+  "through": "2026-11-11",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "YouTube",
+  "views": 16025,
+  "through": "2026-11-12",
+  "lifetime": 27375,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "TikTok",
+  "views": 0,
+  "through": "2026-11-10",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Facebook",
+  "views": 85722,
+  "through": "2026-11-10",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 12.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Instagram",
+  "views": 7446,
+  "through": "2026-11-10",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 12.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-12",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "YouTube",
+  "views": 58144,
+  "through": "2026-11-12",
+  "lifetime": 58144,
   "note": "Súčet views shortov zverejnených v mesiaci"
  }
 ]
