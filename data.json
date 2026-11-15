@@ -518,5 +518,85 @@
   "through": "2026-11-13",
   "lifetime": 72190,
   "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "TikTok",
+  "views": 22922,
+  "through": "2026-11-13",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Facebook",
+  "views": 16484,
+  "through": "2026-11-14",
+  "lifetime": null,
+  "note": "Bez zmazaného videa s Hascakom (odpočítaných 40 613 views)"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Instagram",
+  "views": 7718,
+  "through": "2026-11-14",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "YouTube",
+  "views": 20019,
+  "through": "2026-11-15",
+  "lifetime": 31411,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "TikTok",
+  "views": 0,
+  "through": "2026-11-10",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 15.11.: prehliadač s TikTokom Národnej Záležitosti nebol pripojený; ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Facebook",
+  "views": 149053,
+  "through": "2026-11-11",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 15.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Instagram",
+  "views": 7894,
+  "through": "2026-11-11",
+  "lifetime": null,
+  "note": "Nepodarilo sa načítať 15.11.: uložený MBS profil narodnazalezitost chýba (treba sa znova prihlásiť); ponechaná posledná známa hodnota"
+ },
+ {
+  "date": "2026-11-15",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "YouTube",
+  "views": 122037,
+  "through": "2026-11-15",
+  "lifetime": 122037,
+  "note": "Súčet views shortov zverejnených v mesiaci"
  }
 ]
