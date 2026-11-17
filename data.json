@@ -678,5 +678,85 @@
   "through": "2026-11-16",
   "lifetime": 238505,
   "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "TikTok",
+  "views": 31222,
+  "through": "2026-11-15",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Facebook",
+  "views": 34328,
+  "through": "2026-11-16",
+  "lifetime": null,
+  "note": "Bez zmazaného videa s Hascakom (odpočítaných 40 613 views)"
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "Instagram",
+  "views": 8435,
+  "through": "2026-11-16",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Fiki",
+  "platform": "YouTube",
+  "views": 22159,
+  "through": "2026-11-17",
+  "lifetime": 33556,
+  "note": "Súčet views shortov zverejnených v mesiaci"
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "TikTok",
+  "views": 5,
+  "through": "2026-11-15",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Facebook",
+  "views": 2029196,
+  "through": "2026-11-16",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "Instagram",
+  "views": 19822,
+  "through": "2026-11-16",
+  "lifetime": null,
+  "note": ""
+ },
+ {
+  "date": "2026-11-17",
+  "month": "2026-11",
+  "account": "Národná Záležitosť",
+  "platform": "YouTube",
+  "views": 290273,
+  "through": "2026-11-17",
+  "lifetime": 290273,
+  "note": "Súčet views shortov zverejnených v mesiaci"
  }
 ]
